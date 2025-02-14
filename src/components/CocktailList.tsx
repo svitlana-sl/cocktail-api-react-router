@@ -1,6 +1,10 @@
 import { useCocktails } from "../hooks/useCocktails";
 import CocktailCard from "./CocktailCard";
 
+interface Cocktail {
+  idDrink: string;
+}
+
 export default function CocktailList() {
   const { data, error } = useCocktails();
 
@@ -9,7 +13,7 @@ export default function CocktailList() {
 
   return (
     <ul className="products">
-      {data.drinks.map((cocktail) => (
+      {data.drinks.map((cocktail: Cocktail) => (
         <CocktailCard key={cocktail.idDrink} cocktail={cocktail} />
       ))}
     </ul>
